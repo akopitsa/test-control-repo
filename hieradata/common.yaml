@@ -1,0 +1,43 @@
+classes:
+  - apache
+  - ssh
+
+apache::vhosts:
+  andrii.kopytsia.com:
+    port: 80
+    docroot: /var/www/andrii.kopytsia.com
+    docroot_owner: root
+    docroot_group: root
+    options:
+      - Indexes
+      - FollowSymLinks
+      - MultiViews
+    override: all
+
+  vitalii.ielakov.com:
+    port: 80
+    docroot: /var/www/vitalii.ielakov.com
+
+users:
+  andrii_kopytsia:
+    ensure: present
+    home: /home/andrii_kopytsia
+    shell: /bin/bash
+#    uid: 10001
+#    gid: 10001
+    managehome: true
+    password: '$6$5KhCUA4T$FicxWLG7EUeLnxg7ZCqBPCPUhvmbEgFN5PCWlmMCtVkLTslw5Kr1jTcCnzubZApx3TJQ3HRF4uXYWmTEyYoXw0'
+    groups:
+      - adm
+      - apache
+#      - vboxsf
+  viltalii_ielakov:
+    ensure: present
+    home: /home/viltalii_ielakov
+    shell: /bin/bash
+#    uid: 10002
+#    gid: 10002
+    managehome: true
+    groups:
+      - adm
+#      - vboxsf
