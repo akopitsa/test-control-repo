@@ -2,6 +2,8 @@ classes:
   - apache
   - ssh
 
+apache::mod::php
+apache::mod::rewrite
 apache::vhosts:
   andrii.kopytsia.com:
     port: 80
